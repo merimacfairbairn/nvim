@@ -42,3 +42,21 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("w|so")
 end)
+
+-- Run python
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "python",
+    callback = function(args)
+        vim.keymap.set({'n', 'i'}, '<F5>', '<ESC><CMD>w<CR><CMD>!python %<CR>', {
+buffer = args.buf })
+    end
+})
+
+-- Run c
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "c",
+    callback = function(args)
+        vim.keymap.set({'n', 'i'}, '<F5>', '<ESC><CMD>w<CR><CMD>!gcc % -o %< && ./%<<CR>', {
+buffer = args.buf })
+    end
+})
