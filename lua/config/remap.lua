@@ -27,8 +27,8 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- Quickfix
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-t>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-h>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
@@ -56,7 +56,16 @@ buffer = args.buf })
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "c",
     callback = function(args)
-        vim.keymap.set({'n', 'i'}, '<F5>', '<ESC><CMD>w<CR><CMD>!gcc % -o %< && ./%<<CR>', {
+        vim.keymap.set({'n', 'i'}, '<F5>', '<ESC><CMD>w <CR><CMD>!gcc % -o %< <CR> <CMD>term ./%< <CR>i', {
+buffer = args.buf })
+    end
+})
+
+-- Run rust
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "rust",
+    callback = function(args)
+        vim.keymap.set({'n', 'i'}, '<F5>', '<CMD>w<CR><CMD>!rustc % && ./%< <CR>', {
 buffer = args.buf })
     end
 })
