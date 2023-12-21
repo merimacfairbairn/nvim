@@ -51,21 +51,3 @@ vim.api.nvim_create_autocmd("FileType", {
 buffer = args.buf })
     end
 })
-
--- Run c
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "c",
-    callback = function(args)
-        vim.keymap.set({'n', 'i'}, '<F5>', '<ESC><CMD>w <CR><CMD>!gcc % -o %< <CR> <CMD>term ./%< <CR>i', {
-buffer = args.buf })
-    end
-})
-
--- Run rust
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "rust",
-    callback = function(args)
-        vim.keymap.set({'n', 'i'}, '<F5>', '<CMD>w<CR><CMD>!rustc % && ./%< <CR>', {
-buffer = args.buf })
-    end
-})
