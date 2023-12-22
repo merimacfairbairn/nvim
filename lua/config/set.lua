@@ -29,3 +29,6 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+
+vim.api.nvim_set_hl(0, 'TrailingWhitespace', {bg="#fb4934"})
+vim.cmd([[call matchadd("TrailingWhitespace", '\v\s+$')]])
