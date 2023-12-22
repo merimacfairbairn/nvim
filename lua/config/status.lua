@@ -3,7 +3,6 @@ vim.api.nvim_set_hl(0, 'User2', { fg="#fb4924", bg="#3c3836" })
 vim.api.nvim_set_hl(0, 'User3', { fg="#b8bb26", bg="#3c3836" })
 
 vim.opt.statusline=[[%2*%2M%*]]
-vim.opt.statusline:append([[%1* %n%*]])
 vim.opt.statusline:append([[%3* %<%F%*]])
 
 vim.opt.statusline:append([[%1*%=%*]])
