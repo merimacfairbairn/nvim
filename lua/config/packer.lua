@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
 	use { "ellisonleao/gruvbox.nvim" }
 
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('romgrk/nvim-treesitter-context')
 	use('ThePrimeagen/harpoon')
 	use('mbbill/undotree')
 	use('tpope/vim-fugitive')
