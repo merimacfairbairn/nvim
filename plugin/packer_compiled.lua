@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/larry/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  firenvim = {
+    loaded = true,
+    path = "/home/larry/.local/share/nvim/site/pack/packer/start/firenvim",
+    url = "https://github.com/glacambre/firenvim"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/larry/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",

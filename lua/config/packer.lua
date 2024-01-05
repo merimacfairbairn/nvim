@@ -20,6 +20,10 @@ return require('packer').startup(function(use)
 	use('ThePrimeagen/harpoon')
 	use('mbbill/undotree')
 	use('tpope/vim-fugitive')
+    use {
+        'glacambre/firenvim',
+        run = function() vim.fn['firenvim#install'](0) end
+    }
 
 	use {
 		"williamboman/mason.nvim",
