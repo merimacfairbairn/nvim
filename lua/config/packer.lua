@@ -19,10 +19,7 @@ return require('packer').startup(function(use)
 	use('ThePrimeagen/harpoon')
 	use('mbbill/undotree')
 	use('tpope/vim-fugitive')
-    use {
-        'glacambre/firenvim',
-        run = function() vim.fn['firenvim#install'](0) end
-    }
+    use('ThePrimeagen/vim-be-good')
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',
@@ -35,9 +32,9 @@ return require('packer').startup(function(use)
 			-- LSP Support
 			{'neovim/nvim-lspconfig'},
 			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},
-			{'hrsh7th/cmp-nvim-lsp'},
-			{'L3MON4D3/LuaSnip'},
-		}
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'L3MON4D3/LuaSnip'},
+        }
 	}
 end)
