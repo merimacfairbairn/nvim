@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
 	use('mbbill/undotree')
 	use('tpope/vim-fugitive')
     use('ThePrimeagen/vim-be-good')
+    use("folke/zen-mode.nvim")
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',
