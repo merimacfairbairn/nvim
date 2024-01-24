@@ -1,5 +1,7 @@
 require("config.remap")
 require("config.set")
+
+require("config.lazy_init")
 require("config.status")
 
 -- autocmd's
@@ -43,3 +45,7 @@ autocmd("BufWritePre", {
     vim.lsp.buf.format({async = false})
   end
 })
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
