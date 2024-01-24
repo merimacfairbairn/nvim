@@ -6,6 +6,19 @@ return{
     };
 
     config = function()
+        require("telescope").setup({
+            pickers = {
+                find_files = {
+                    disable_devicons = true
+                };
+                git_files = {
+                    disable_devicons = true
+                };
+                grep_string = {
+                    disable_devicons = true
+                };
+            };
+        })
         local builtin = require('telescope.builtin')
 
         vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
