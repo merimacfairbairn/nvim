@@ -28,7 +28,7 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set(
     "n",
     "<leader>ee",
-    "oif err != {<CR>}<ESC>Oreturn err<ESC>"
+    "oif err != nil {<CR>}<ESC>Oreturn err<ESC>"
 )
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

@@ -11,6 +11,7 @@ return{
         "go",
         "c",
         "python",
+        "html",
     },
 
     config = function()
@@ -20,8 +21,8 @@ return{
         ls.filetype_extend("c", { "cdoc" })
         ls.filetype_extend("go", { "godoc" })
 
-        vim.keymap.set({"i", "s"}, "<C-j>", function() ls.jump( 1) end, {silent = true})
-        vim.keymap.set({"i", "s"}, "<C-k>", function() ls.jump(-1) end, {silent = true})
+        vim.keymap.set({"i", "s"}, "<C-j>", function() ls.jump(-1) end, {silent = true})
+        vim.keymap.set({"i", "s"}, "<C-k>", function() ls.jump( 1) end, {silent = true})
 
         vim.keymap.set({"i", "s"}, "<C-E>", function()
             if ls.choice_active() then
