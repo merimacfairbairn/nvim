@@ -1,19 +1,22 @@
 return{
     "folke/zen-mode.nvim",
 
-    config = function()
+    opts = {
+        window = {
+            width = 90,
+        },
+        plugins = {
+            options = {
+                laststatus = 3
+            },
+        },
+    },
+
+    config = true,
+
+    keys = {
         vim.keymap.set("n", "<leader>zz", function()
-            require("zen-mode").setup {
-                window = {
-                    width = 90,
-                },
-                plugins = {
-                    options = {
-                        laststatus = 3
-                    },
-                },
-            }
             require("zen-mode").toggle()
         end)
-    end
+    },
 }

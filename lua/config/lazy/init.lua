@@ -2,9 +2,10 @@ return{
     "ThePrimeagen/vim-be-good",
     {
         "mbbill/undotree",
-        config = function()
+        cmd = "UndotreeToggle",
+        keys = function()
             vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
-        end
+        end,
     };
     {
         "ellisonleao/gruvbox.nvim",
