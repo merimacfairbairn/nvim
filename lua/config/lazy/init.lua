@@ -18,6 +18,9 @@ return{
             end
 
             ColorDefault()
-        end
+        end,
+        opts = {
+            transparent_mode = true
+        },
     };
 }
