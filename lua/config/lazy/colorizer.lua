@@ -11,6 +11,9 @@ return {
         css = {
             css = true,
         },
+        less = {
+            css = true,
+        },
         html = {
             names = true,
         },
