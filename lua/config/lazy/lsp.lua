@@ -37,21 +37,18 @@ return{
             ensure_installed = {
                 "lua_ls",
                 "clangd",
-                "jedi_language_server",
+                "pylsp",
                 "gopls",
-                "rust_analyzer",
             };
             handlers = {
                 function(server_name)
-
                     require("lspconfig")[server_name].setup({
                         capabilities = capabilities
                     })
                 end,
-                ["lua_ls"] = function ()
+                ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
-                        capabilities = capabilities,
                         settings = {
                             Lua = {
                                 diagnostics = {
@@ -71,9 +68,9 @@ return{
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+                ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
+                ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
+                ['<Enter>'] = cmp.mapping.confirm({ select = true }),
                 ['<C-Space>'] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
