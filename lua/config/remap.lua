@@ -43,6 +43,6 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "python",
     callback = function(args)
         vim.keymap.set({'n', 'i'}, '<F5>', '<ESC><CMD>w<CR><CMD>!python %<CR>', {
-buffer = args.buf })
-    end
-})
+            buffer = args.buf })
+        end
+    })
