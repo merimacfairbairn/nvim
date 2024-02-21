@@ -1,4 +1,4 @@
-return{
+return {
     "neovim/nvim-lspconfig",
     dependencies = {
         "williamboman/mason.nvim",
@@ -10,11 +10,11 @@ return{
         "hrsh7th/nvim-cmp",
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
-    };
+    },
 
     config = function()
         local cmp = require('cmp')
-        local cmp_select = {behavior = cmp.SelectBehavior.Select}
+        local cmp_select = { behavior = cmp.SelectBehavior.Select }
         local cmp_lsp = require("cmp_nvim_lsp")
         local capabilities = vim.tbl_deep_extend(
             "force",
@@ -37,9 +37,9 @@ return{
             ensure_installed = {
                 "lua_ls",
                 "clangd",
-                "pylsp",
+                "pyright",
                 "gopls",
-            };
+            },
             handlers = {
                 function(server_name)
                     require("lspconfig")[server_name].setup({
@@ -58,7 +58,25 @@ return{
                         }
                     }
                 end,
-            };
+                ["pyright"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.pyright.setup({
+                        settings = {
+                            pyright = {
+                                autoImportCompletion = true,
+                            },
+                            python = {
+                                analysis = {
+                                    autoSearchPaths = true,
+                                    diagnosticMode = "openFilesOnly",
+                                    useLibraryCodeForTypes = true,
+                                    typeCheckingMode = "off",
+                                },
+                            },
+                        },
+                    })
+                end,
+            },
         })
 
         cmp.setup({
@@ -90,7 +108,7 @@ return{
                 source = "always",
                 header = "",
                 prefix = "",
-            };
+            },
         })
     end
 }
