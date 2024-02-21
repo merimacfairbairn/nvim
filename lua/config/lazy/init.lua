@@ -1,4 +1,4 @@
-return{
+return {
     "ThePrimeagen/vim-be-good",
     {
         "mbbill/undotree",
@@ -6,7 +6,7 @@ return{
         keys = function()
             vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
         end,
-    };
+    },
     {
         "ellisonleao/gruvbox.nvim",
         priority = 1000,
@@ -22,5 +22,17 @@ return{
         opts = {
             transparent_mode = true
         },
-    };
+    },
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        config = true,
+        ft = {
+            "go",
+            "c",
+            "python",
+            "rust",
+            "typescript",
+            "javascript",
+        }
+    },
 }
