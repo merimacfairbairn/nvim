@@ -49,9 +49,9 @@ autocmd("BufWritePre", {
 autocmd("BufWritePre", {
     pattern = "*",
     callback = function()
-        if vim.bo.filetype == "c" then
-            return
-        end
+        -- if vim.bo.filetype == "c" then
+        --     return
+        -- end
         vim.lsp.buf.format()
     end
 })

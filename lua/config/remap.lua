@@ -12,10 +12,10 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
@@ -38,11 +38,3 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("w|so")
 end)
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "python",
-    callback = function(args)
-        vim.keymap.set({'n', 'i'}, '<F5>', '<ESC><CMD>w<CR><CMD>!python %<CR>', {
-            buffer = args.buf })
-        end
-    })
