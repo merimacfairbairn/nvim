@@ -47,8 +47,7 @@ return {
                     })
                 end,
                 ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
+                    require("lspconfig").lua_ls.setup({
                         settings = {
                             Lua = {
                                 diagnostics = {
@@ -56,11 +55,10 @@ return {
                                 }
                             }
                         }
-                    }
+                    })
                 end,
                 ["pyright"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.pyright.setup({
+                    require("lspconfig").pyright.setup({
                         settings = {
                             pyright = {
                                 autoImportCompletion = true,
@@ -86,9 +84,9 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<Enter>'] = cmp.mapping.confirm({ select = true }),
+                ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+                ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                 ['<C-Space>'] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
