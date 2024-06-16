@@ -17,5 +17,10 @@ return {
         html = {
             names = true,
         },
-    };
+    },
+    ft = {
+        "css",
+        "html",
+        "conf",
+    }
 };

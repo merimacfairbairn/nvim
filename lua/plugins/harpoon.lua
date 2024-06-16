@@ -1,7 +1,7 @@
-return{
-	"ThePrimeagen/harpoon",
+return {
+    "ThePrimeagen/harpoon",
 
-    config = function()
+    keys = function()
         local mark = require("harpoon.mark")
         local ui = require("harpoon.ui")
 

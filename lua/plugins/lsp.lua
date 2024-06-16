@@ -12,6 +12,8 @@ return {
         "j-hui/fidget.nvim",
     },
 
+    event = { "BufNewFile", "BufReadPre" },
+
     config = function()
         local cmp = require('cmp')
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
