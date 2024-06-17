@@ -15,6 +15,7 @@ return {
     event = { "BufNewFile", "BufReadPre" },
 
     config = function()
+        local lsp = require("lspconfig")
         local cmp = require('cmp')
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
         local cmp_lsp = require("cmp_nvim_lsp")
@@ -25,7 +26,8 @@ return {
             cmp_lsp.default_capabilities()
         )
 
-        require("fidget").setup({})
+        require("fidget").setup()
+
         require("mason").setup({
             ui = {
                 icons = {
@@ -35,6 +37,7 @@ return {
                 }
             }
         })
+
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
@@ -42,41 +45,42 @@ return {
                 "pyright",
                 "gopls",
             },
-            handlers = {
-                function(server_name)
-                    require("lspconfig")[server_name].setup({
-                        capabilities = capabilities
-                    })
-                end,
-                ["lua_ls"] = function()
-                    require("lspconfig").lua_ls.setup({
-                        settings = {
-                            Lua = {
-                                diagnostics = {
-                                    globals = { "vim" }
-                                }
+        })
+
+        require("mason-lspconfig").setup_handlers({
+            function(server_name)
+                lsp[server_name].setup({
+                    capabilities = capabilities
+                })
+            end,
+            ["lua_ls"] = function()
+                lsp.lua_ls.setup({
+                    settings = {
+                        Lua = {
+                            diagnostics = {
+                                globals = { "vim" }
                             }
                         }
-                    })
-                end,
-                ["pyright"] = function()
-                    require("lspconfig").pyright.setup({
-                        settings = {
-                            pyright = {
-                                autoImportCompletion = true,
-                            },
-                            python = {
-                                analysis = {
-                                    autoSearchPaths = true,
-                                    diagnosticMode = "openFilesOnly",
-                                    useLibraryCodeForTypes = true,
-                                    typeCheckingMode = "off",
-                                },
+                    }
+                })
+            end,
+            ["pyright"] = function()
+                lsp.pyright.setup({
+                    settings = {
+                        pyright = {
+                            autoImportCompletion = true,
+                        },
+                        python = {
+                            analysis = {
+                                autoSearchPaths = true,
+                                diagnosticMode = "openFilesOnly",
+                                useLibraryCodeForTypes = true,
+                                typeCheckingMode = "on",
                             },
                         },
-                    })
-                end,
-            },
+                    },
+                })
+            end,
         })
 
         cmp.setup({
