@@ -21,6 +21,7 @@ return {
     },
 
     ft = {
+        "scss",
         "css",
         "html",
         "conf",
