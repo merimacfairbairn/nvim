@@ -33,6 +33,10 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+-- spell checker
+vim.opt.spelllang = "en_gb"
+vim.opt.spell = true
+
 -- netrw options
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
