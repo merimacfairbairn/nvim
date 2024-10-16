@@ -23,13 +23,6 @@ autocmd("BufWritePre", {
     end
 })
 
-autocmd("BufWritePre", {
-    pattern = "*",
-    callback = function()
-        vim.lsp.buf.format()
-    end
-})
-
 autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
     callback = function(ev)
