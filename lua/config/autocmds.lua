@@ -51,3 +51,10 @@ autocmd('TextYankPost', {
         })
     end,
 })
+
+autocmd("FileType", {
+    pattern = { "pandoc", "markdown", "text" },
+    callback = function()
+        vim.keymap.set("n", "<Leader>tf", [[vip:'<,'>! tr -s " " | column -t -s '|' -o '|'<CR><ESC>]], {buffer = 0})
+    end,
+})
