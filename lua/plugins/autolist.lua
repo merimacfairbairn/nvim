@@ -1,7 +1,6 @@
 return {
     "gaoDean/autolist.nvim",
     ft = {
-        "pandoc",
         "markdown",
         "text",
     },
