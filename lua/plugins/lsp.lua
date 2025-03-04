@@ -42,8 +42,9 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "clangd",
-                "pyright",
                 "gopls",
+                "ruff",
+                "pyright",
             },
         })
 
@@ -64,6 +65,15 @@ return {
                     }
                 })
             end,
+            ["ruff"] = function()
+                lsp.ruff.setup({
+                    init_options = {
+                        settings = {
+                            lineLength = 88,
+                        },
+                    }
+                })
+            end,
             ["pyright"] = function()
                 lsp.pyright.setup({
                     settings = {
@@ -72,15 +82,12 @@ return {
                         },
                         python = {
                             analysis = {
-                                autoSearchPaths = true,
-                                diagnosticMode = "workspace",
                                 useLibraryCodeForTypes = true,
-                                typeCheckingMode = "on",
-                            },
+                            }
                         },
-                    },
+                    }
                 })
-            end,
+            end
         })
 
         cmp.setup({
