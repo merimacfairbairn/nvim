@@ -83,9 +83,9 @@ return {
                 neorg_4 = "%-%-%-%-",
                 neorg_5 = "%-%-%-%-%-",
                 unordered = "[-+*]", -- - + *
-                digit = "%d+[.)]", -- 1. 2. 3.
-                ascii = "%a[.)]", -- a) b) c)
-                roman = "%u*[.)]", -- I. II. III.
+                digit = "%d+[.)]",   -- 1. 2. 3.
+                ascii = "%a[.)]",    -- a) b) c)
+                roman = "%u*[.)]",   -- I. II. III.
                 latex_item = "\\item",
             }
 
@@ -129,4 +129,14 @@ return {
             vim.keymap.set("v", "d", "d<cmd>AutolistRecalculate<cr>")
         end,
     },
+    {
+        'Kicamon/markdown-table-mode.nvim',
+        ft = {
+            "markdown",
+            "text",
+        },
+        config = function()
+            require('markdown-table-mode').setup()
+        end
+    }
 }
