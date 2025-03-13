@@ -76,6 +76,11 @@ return {
             end,
             ["pyright"] = function()
                 lsp.pyright.setup({
+                    on_attach = function(client, bufnr)
+                        if client.name == "pyright" then
+                            client.handlers["textDocument/publishDiagnostics"] = function() end -- no diagnostics from pyright
+                        end
+                    end,
                     settings = {
                         pyright = {
                             autoImportCompletion = true,
@@ -83,6 +88,10 @@ return {
                         python = {
                             analysis = {
                                 useLibraryCodeForTypes = true,
+                                typeCheckingMode = "basic",
+                                reportMissingImports = false,
+                                reportUnusedImports = false,
+                                reportUnusedVariable = false,
                             }
                         },
                     }
