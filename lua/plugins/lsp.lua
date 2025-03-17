@@ -96,6 +96,19 @@ return {
                         },
                     }
                 })
+            end,
+            ["html"] = function()
+                lsp.html.setup({
+                    capabilities = capabilities,
+                    filetypes = { "html", "htmldjango" }, -- Ensure it works with Django templates
+                    init_options = {
+                        configurationSection = { "html", "css", "javascript" },
+                        embeddedLanguages = {
+                            css = true,
+                            javascript = true
+                        }
+                    }
+                })
             end
         })
 
