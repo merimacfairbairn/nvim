@@ -12,6 +12,7 @@ return {
         "c",
         "python",
         "html",
+        "htmldjango",
     },
 
     config = function()
@@ -20,6 +21,7 @@ return {
         ls.filetype_extend("python", { "pydoc" })
         ls.filetype_extend("c", { "cdoc" })
         ls.filetype_extend("go", { "godoc" })
+        ls.filetype_extend("htmldjango", { "html" })
 
         vim.keymap.set({ "i", "s" }, "<C-j>", function() ls.jump(-1) end, { silent = true })
         vim.keymap.set({ "i", "s" }, "<C-k>", function() ls.jump(1) end, { silent = true })
