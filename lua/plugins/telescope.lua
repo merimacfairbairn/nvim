@@ -57,5 +57,7 @@ return {
             })
         end)
         vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
+
+        require("plugins.telescope.multigrep").setup()
     end,
 }
