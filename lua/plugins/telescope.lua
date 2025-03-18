@@ -50,6 +50,12 @@ return {
         vim.keymap.set('n', '<leader>ps', function()
             builtin.live_grep();
         end)
+
+        vim.keymap.set('n', '<leader>ep', function()
+            builtin.find_files({
+                cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
+            })
+        end)
         vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
     end,
 }
