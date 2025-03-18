@@ -17,6 +17,9 @@ return {
                 grep_string = {
                     disable_devicons = true
                 },
+                live_grep = {
+                    disable_devicons = true
+                },
                 extensions = {
                     fzf = {
                         fuzzy = true,                   -- false will only do exact matching
