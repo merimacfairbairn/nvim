@@ -49,7 +49,14 @@ return {
                 cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
             })
         end)
+
         vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
+
+        vim.keymap.set("n", "<leader>vrr", builtin.lsp_references, {})
+
+        vim.keymap.set("n", "z=", function()
+            builtin.spell_suggest( cursor )
+        end, {})
 
         require("plugins.telescope.multigrep").setup()
     end,
