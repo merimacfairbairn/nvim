@@ -36,13 +36,12 @@ return {
     end,
     keys = function()
         local builtin = require('telescope.builtin')
-        local cursor = require('telescope.themes').get_cursor()
+        local themes = require('telescope.themes')
 
+        -- Find
         vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
         vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-        vim.keymap.set('n', '<leader>ps', function()
-            builtin.live_grep();
-        end)
+        require("plugins.telescope.multigrep").setup()
 
         vim.keymap.set('n', '<leader>ep', function()
             builtin.find_files({
@@ -52,12 +51,21 @@ return {
 
         vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
 
+        -- LSP
         vim.keymap.set("n", "<leader>vrr", builtin.lsp_references, {})
-
-        vim.keymap.set("n", "z=", function()
-            builtin.spell_suggest( cursor )
+        vim.keymap.set("n", "gd", function()
+            builtin.lsp_definitions(themes.get_dropdown())
+        end, {})
+        vim.keymap.set("n", "<leader>vws", function()
+            builtin.lsp_workspace_symbols(themes.get_dropdown())
+        end, {})
+        vim.keymap.set("n", "<leader>tt", function()
+            builtin.diagnostics(themes.get_ivy())
         end, {})
 
-        require("plugins.telescope.multigrep").setup()
+
+        vim.keymap.set("n", "z=", function()
+            builtin.spell_suggest(themes.get_cursor())
+        end, {})
     end,
 }
