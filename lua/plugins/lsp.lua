@@ -58,7 +58,10 @@ return {
                         javascript = true
                     }
                 }
-            }
+            },
+
+            rust_analyzer = {
+            },
         },
     },
 
