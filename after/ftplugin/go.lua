@@ -4,4 +4,3 @@ vim.keymap.set(
     "oif err != nil {<CR>}<ESC>Oreturn err<ESC>",
     { buffer = 0 }
 )
-

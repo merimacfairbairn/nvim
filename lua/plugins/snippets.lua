@@ -1,37 +1,37 @@
 return {
-    "L3MON4D3/LuaSnip",
-    -- follow latest release.
-    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-    -- install jsregexp (optional!).
-    build = "make install_jsregexp",
+  "L3MON4D3/LuaSnip",
+  -- follow latest release.
+  version = "v2.*",   -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+  -- install jsregexp (optional!).
+  build = "make install_jsregexp",
 
-    dependencies = { "Wscats/html-snippets" },
+  dependencies = { "Wscats/html-snippets" },
 
-    ft = {
-        "go",
-        "c",
-        "python",
-        "html",
-        "htmldjango",
-    },
+  ft = {
+    "go",
+    "c",
+    "python",
+    "html",
+    "htmldjango",
+  },
 
-    config = function()
-        local ls = require("luasnip")
+  config = function()
+    local ls = require("luasnip")
 
-        ls.filetype_extend("python", { "pydoc" })
-        ls.filetype_extend("c", { "cdoc" })
-        ls.filetype_extend("go", { "godoc" })
-        ls.filetype_extend("htmldjango", { "html" })
+    ls.filetype_extend("python", { "pydoc" })
+    ls.filetype_extend("c", { "cdoc" })
+    ls.filetype_extend("go", { "godoc" })
+    ls.filetype_extend("htmldjango", { "html" })
 
-        vim.keymap.set({ "i", "s" }, "<C-j>", function() ls.jump(-1) end, { silent = true })
-        vim.keymap.set({ "i", "s" }, "<C-k>", function() ls.jump(1) end, { silent = true })
+    vim.keymap.set({ "i", "s" }, "<C-j>", function() ls.jump(-1) end, { silent = true })
+    vim.keymap.set({ "i", "s" }, "<C-k>", function() ls.jump(1) end, { silent = true })
 
-        vim.keymap.set({ "i", "s" }, "<C-E>", function()
-            if ls.choice_active() then
-                ls.change_choice(1)
-            end
-        end, { silent = true })
+    vim.keymap.set({ "i", "s" }, "<C-E>", function()
+      if ls.choice_active() then
+        ls.change_choice(1)
+      end
+    end, { silent = true })
 
-        require("luasnip.loaders.from_vscode").lazy_load()
-    end,
+    require("luasnip.loaders.from_vscode").lazy_load()
+  end,
 }

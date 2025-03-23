@@ -1,29 +1,29 @@
 return {
-    "norcalli/nvim-colorizer.lua",
+  "norcalli/nvim-colorizer.lua",
 
-    cmd = "ColorizerToggle",
+  cmd = "ColorizerToggle",
 
-    keys = function()
-        vim.keymap.set("n", "<leader>col", vim.cmd.ColorizerToggle)
-    end,
+  keys = function()
+    vim.keymap.set("n", "<leader>col", vim.cmd.ColorizerToggle)
+  end,
 
-    opts = {
-        "*",
-        css = {
-            css = true,
-        },
-        less = {
-            css = true,
-        },
-        html = {
-            names = true,
-        },
+  opts = {
+    "*",
+    css = {
+      css = true,
     },
+    less = {
+      css = true,
+    },
+    html = {
+      names = true,
+    },
+  },
 
-    ft = {
-        "scss",
-        "css",
-        "html",
-        "conf",
-    }
+  ft = {
+    "scss",
+    "css",
+    "html",
+    "conf",
+  }
 };
