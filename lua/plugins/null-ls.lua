@@ -8,7 +8,7 @@ return {
 
   config = function()
     require("mason-null-ls").setup({
-      ensure_installed = { "isort" },
+      ensure_installed = { "isort", "djlint" },
       automatic_installation = true,
     })
 
@@ -17,6 +17,10 @@ return {
     null_ls.setup({
       sources = {
         null_ls.builtins.formatting.isort,
+        null_ls.builtins.formatting.djlint.with({
+          filetypes = { "htmldjango" },
+          extra_args = { "--indent-size", "2" },
+        }),
       },
     })
   end,
