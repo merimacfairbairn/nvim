@@ -4,7 +4,7 @@ return {
   cmd = "ColorizerToggle",
 
   keys = function()
-    vim.keymap.set("n", "<leader>col", vim.cmd.ColorizerToggle)
+    vim.keymap.set("n", "<space>col", vim.cmd.ColorizerToggle)
   end,
 
   opts = {

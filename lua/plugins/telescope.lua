@@ -39,27 +39,27 @@ return {
     local themes = require('telescope.themes')
 
     -- Find
-    vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+    vim.keymap.set('n', '<space>pf', builtin.find_files, {})
     vim.keymap.set('n', '<C-p>', builtin.git_files, {})
     require("plugins.telescope.multigrep").setup()
 
-    vim.keymap.set('n', '<leader>ep', function()
+    vim.keymap.set('n', '<space>ep', function()
       builtin.find_files({
         cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
       })
     end)
 
-    vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
+    vim.keymap.set('n', '<space>vh', builtin.help_tags, {})
 
     -- LSP
-    vim.keymap.set("n", "<leader>vrr", builtin.lsp_references, {})
+    vim.keymap.set("n", "<Leader>vrr", builtin.lsp_references, {})
     vim.keymap.set("n", "gd", function()
       builtin.lsp_definitions(themes.get_dropdown())
     end, {})
-    vim.keymap.set("n", "<leader>vws", function()
+    vim.keymap.set("n", "<Leader>vws", function()
       builtin.lsp_workspace_symbols(themes.get_dropdown())
     end, {})
-    vim.keymap.set("n", "<leader>tt", function()
+    vim.keymap.set("n", "<space>tt", function()
       builtin.diagnostics(themes.get_ivy())
     end, {})
 

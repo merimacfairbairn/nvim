@@ -10,10 +10,10 @@ return {
   config = true,
 
   keys = function()
-    vim.keymap.set("n", "<leader>nf", function()
+    vim.keymap.set("n", "<Leader>nf", function()
       require("neogen").generate({ type = "func" })
     end)
-    vim.keymap.set("n", "<leader>nt", function()
+    vim.keymap.set("n", "<Leader>nt", function()
       require("neogen").generate({ type = "type" })
     end)
   end,

@@ -28,11 +28,11 @@ autocmd("LspAttach", {
   callback = function(ev)
     local opts = { buffer = ev.buf }
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+    vim.keymap.set("n", "<Leader>vd", function() vim.diagnostic.open_float() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set("n", "<Leader>vca", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set("n", "<Leader>vrn", function() vim.lsp.buf.rename() end, opts)
   end
 })
 
@@ -51,6 +51,6 @@ autocmd('TextYankPost', {
 autocmd("FileType", {
   pattern = { "pandoc", "markdown", "text" },
   callback = function()
-    vim.keymap.set("n", "<Leader>tf", [[vip:'<,'>! tr -s " " | column -t -s '|' -o '|'<CR><ESC>]], { buffer = 0 })
+    vim.keymap.set("n", "<space>tf", [[vip:'<,'>! tr -s " " | column -t -s '|' -o '|'<CR><ESC>]], { buffer = 0 })
   end,
 })

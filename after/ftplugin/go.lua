@@ -1,6 +1,6 @@
 vim.keymap.set(
     "n",
-    "<leader>ee",
+    "<space>ee",
     "oif err != nil {<CR>}<ESC>Oreturn err<ESC>",
     { buffer = 0 }
 )

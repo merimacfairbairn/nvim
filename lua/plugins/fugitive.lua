@@ -3,7 +3,7 @@ return {
 
   cmd = "Git",
   keys = function()
-    vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
+    vim.keymap.set("n", "<Leader>gs", vim.cmd.Git);
   end,
 
   config = function()
@@ -25,7 +25,7 @@ return {
         end, opts)
 
         -- rebase always
-        vim.keymap.set("n", "<leader>P", function()
+        vim.keymap.set("n", "<Leader>P", function()
           vim.cmd [[ Git pull --rebase ]]
         end, opts)
 

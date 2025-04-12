@@ -63,7 +63,7 @@ return {
           follow_link = nil,
         },
         on_attach = function(bufnr)
-          vim.keymap.set("n", "<LEADER>toc", "<CMD>MDToc<CR>", { buffer = bufnr })
+          vim.keymap.set("n", "<space>toc", "<CMD>MDToc<CR>", { buffer = bufnr })
         end,
       })
     end
@@ -115,12 +115,8 @@ return {
       vim.keymap.set("n", "<Leader>r", "<cmd>AutolistRecalculate<cr>")
 
       -- cycle list types with dot-repeat
-      vim.keymap.set("n", "<leader>cn", require("autolist").cycle_next_dr, { expr = true })
-      vim.keymap.set("n", "<leader>cp", require("autolist").cycle_prev_dr, { expr = true })
-
-      -- if you don't want dot-repeat
-      -- vim.keymap.set("n", "<leader>cn", "<cmd>AutolistCycleNext<cr>")
-      -- vim.keymap.set("n", "<leader>cp", "<cmd>AutolistCycleNext<cr>")
+      vim.keymap.set("n", "<space>cn", require("autolist").cycle_next_dr, { expr = true })
+      vim.keymap.set("n", "<space>cp", require("autolist").cycle_prev_dr, { expr = true })
 
       -- functions to recalculate list on edit
       vim.keymap.set("n", ">>", ">><cmd>AutolistRecalculate<cr>")
