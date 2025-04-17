@@ -9,6 +9,18 @@ set("n", "<C-u>", "<C-u>zz")
 set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
 
+set("n", "p", function()
+  local row, cursor = unpack(vim.api.nvim_win_get_cursor(0))
+  vim.cmd("put")
+  vim.api.nvim_win_set_cursor(0, { row + 1, cursor })
+end)
+
+set("n", "P", function()
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  vim.cmd("normal! P")
+  vim.api.nvim_win_set_cursor(0, { row, col })
+end)
+
 set("x", "<space>p", [["_dP]])
 
 set({ "n", "v" }, "<space>y", [["+y]])
