@@ -1,10 +1,11 @@
 return {
   'stevearc/oil.nvim',
-  dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-  ---@module 'oil'
-  ---@type oil.SetupOpts
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     skip_confirm_for_simple_edits = true,
+    prompt_save_on_select_new_entry = false,
+
+    watch_for_changes = true,
 
     lsp_file_methods = {
       autosave_changes = true,
@@ -26,9 +27,10 @@ return {
     },
   },
 
-  config = function()
-    require("oil").setup()
-    vim.keymap.set("n", "<space>pv", "<cmd>Oil<cr>")
+  config = function(_, opts)
+    require("oil").setup(opts)
+    -- vim.keymap.set("n", "<space>pv", "<cmd>Oil<cr>")
   end,
   lazy = false,
 }
+
