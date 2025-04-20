@@ -1,8 +1,8 @@
 vim.keymap.set(
-    "n",
-    "<space>ee",
-    "oif err != nil {<CR>}<ESC>Oreturn err<ESC>",
-    { buffer = 0 }
+  "n",
+  "<space>ee",
+  "oif err != nil {<CR>}<ESC>Oreturn err<ESC>",
+  { buffer = 0 }
 )
 
 vim.api.nvim_create_autocmd("BufWritePre", {

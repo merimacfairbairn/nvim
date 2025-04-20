@@ -6,7 +6,7 @@ return {
     "j-hui/fidget.nvim",
     {
       "folke/lazydev.nvim",
-      ft = "lua",       -- only load on lua files
+      ft = "lua", -- only load on lua files
       opts = {
         library = {
           { path = "${3rd}/luv/library", words = { "vim%.uv" } },
@@ -39,7 +39,7 @@ return {
       pyright = {
         on_attach = function(client, bufnr)
           if client.name == "pyright" then
-            client.handlers["textDocument/publishDiagnostics"] = function() end             -- no diagnostics from pyright
+            client.handlers["textDocument/publishDiagnostics"] = function() end -- no diagnostics from pyright
           end
         end,
         settings = {
@@ -59,7 +59,7 @@ return {
       },
 
       html = {
-        filetypes = { "html", "htmldjango" },         -- Ensure it works with Django templates
+        filetypes = { "html", "htmldjango" }, -- Ensure it works with Django templates
         init_options = {
           configurationSection = { "html", "css", "javascript" },
           embeddedLanguages = {

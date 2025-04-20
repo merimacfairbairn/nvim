@@ -1,22 +1,22 @@
 return {
   {
     "tadmccorkle/markdown.nvim",
-    ft = "markdown",     -- or 'event = "VeryLazy"'
+    ft = "markdown", -- or 'event = "VeryLazy"'
     config = function()
       require("markdown").setup({
         -- Disable all keymaps by setting mappings field to 'false'.
         -- Selectively disable keymaps by setting corresponding field to 'false'.
         mappings = {
-          inline_surround_toggle = "gs",                 -- (string|boolean) toggle inline style
-          inline_surround_toggle_line = "gss",           -- (string|boolean) line-wise toggle inline style
-          inline_surround_delete = "ds",                 -- (string|boolean) delete emphasis surrounding cursor
-          inline_surround_change = "cs",                 -- (string|boolean) change emphasis surrounding cursor
-          link_add = "gl",                               -- (string|boolean) add link
-          link_follow = "gx",                            -- (string|boolean) follow link
-          go_curr_heading = "]c",                        -- (string|boolean) set cursor to current section heading
-          go_parent_heading = "]p",                      -- (string|boolean) set cursor to parent section heading
-          go_next_heading = "]]",                        -- (string|boolean) set cursor to next section heading
-          go_prev_heading = "[[",                        -- (string|boolean) set cursor to previous section heading
+          inline_surround_toggle = "gs",       -- (string|boolean) toggle inline style
+          inline_surround_toggle_line = "gss", -- (string|boolean) line-wise toggle inline style
+          inline_surround_delete = "ds",       -- (string|boolean) delete emphasis surrounding cursor
+          inline_surround_change = "cs",       -- (string|boolean) change emphasis surrounding cursor
+          link_add = "gl",                     -- (string|boolean) add link
+          link_follow = "gx",                  -- (string|boolean) follow link
+          go_curr_heading = "]c",              -- (string|boolean) set cursor to current section heading
+          go_parent_heading = "]p",            -- (string|boolean) set cursor to parent section heading
+          go_next_heading = "]]",              -- (string|boolean) set cursor to next section heading
+          go_prev_heading = "[[",              -- (string|boolean) set cursor to previous section heading
         },
         inline_surround = {
           -- For the emphasis, strong, strikethrough, and code fields:
@@ -41,7 +41,7 @@ return {
         },
         link = {
           paste = {
-            enable = true,             -- whether to convert URLs to links on paste
+            enable = true, -- whether to convert URLs to links on paste
           },
         },
         toc = {
@@ -82,15 +82,15 @@ return {
         neorg_3 = "%-%-%-",
         neorg_4 = "%-%-%-%-",
         neorg_5 = "%-%-%-%-%-",
-        unordered = "[-+*]",         -- - + *
-        digit = "%d+[.)]",           -- 1. 2. 3.
-        ascii = "%a[.)]",            -- a) b) c)
-        roman = "%u*[.)]",           -- I. II. III.
+        unordered = "[-+*]", -- - + *
+        digit = "%d+[.)]",   -- 1. 2. 3.
+        ascii = "%a[.)]",    -- a) b) c)
+        roman = "%u*[.)]",   -- I. II. III.
         latex_item = "\\item",
       }
 
       require("autolist").setup({
-        lists = {         -- configures list behaviours
+        lists = { -- configures list behaviours
           -- Each key in lists represents a filetype.
           -- The value is a table of all the list patterns that the filetype implements.
           -- See how to define your custom list below in the readme.
@@ -99,15 +99,15 @@ return {
           pandoc = {
             list_patterns.unordered,
             list_patterns.digit,
-            list_patterns.ascii,             -- for example this specifies activate the ascii list
-            list_patterns.roman,             -- type for markdown files.
+            list_patterns.ascii, -- for example this specifies activate the ascii list
+            list_patterns.roman, -- type for markdown files.
           },
         }
       })
 
       vim.keymap.set("i", "<tab>", "<cmd>AutolistTab<cr>")
       vim.keymap.set("i", "<s-tab>", "<cmd>AutolistShiftTab<cr>")
-      vim.keymap.set("i", "<c-t>", "<c-t><cmd>AutolistRecalculate<cr>")       -- an example of using <c-t> to indent
+      vim.keymap.set("i", "<c-t>", "<c-t><cmd>AutolistRecalculate<cr>") -- an example of using <c-t> to indent
       vim.keymap.set("i", "<CR>", "<CR><cmd>AutolistNewBullet<cr>")
       vim.keymap.set("n", "o", "o<cmd>AutolistNewBullet<cr>")
       vim.keymap.set("n", "O", "O<cmd>AutolistNewBulletBefore<cr>")
