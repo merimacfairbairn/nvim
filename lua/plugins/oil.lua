@@ -29,7 +29,7 @@ return {
 
   config = function(_, opts)
     require("oil").setup(opts)
-    -- vim.keymap.set("n", "<space>pv", "<cmd>Oil<cr>")
+    vim.keymap.set("n", "<space>pv", "<cmd>Oil<cr>")
   end,
   lazy = false,
 }
