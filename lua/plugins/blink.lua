@@ -9,6 +9,9 @@ return {
     keymap = {
       preset = 'default',
 
+      ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
+      ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
+
       ['<C-h>'] = { 'show_signature', 'hide_signature', 'fallback' },
     },
 
