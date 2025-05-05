@@ -34,6 +34,10 @@ return {
           -- make lazydev completions top priority (see `:h blink.cmp`)
           score_offset = 100,
         },
+        lsp = { score_offset = 3 },
+        path = { score_offset = 2 },
+        snippets = { score_offset = 1 },
+        buffer = { score_offset = 0 },
       },
     },
 
