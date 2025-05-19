@@ -68,9 +68,6 @@ return {
           }
         }
       },
-
-      rust_analyzer = {
-      },
     },
   },
 
