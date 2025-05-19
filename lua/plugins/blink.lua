@@ -44,12 +44,12 @@ return {
         path = { score_offset = 40 },
 
         snippets = {
-          score_offset = 10,
+          name = "snippets",
+          enabled = true,
           max_items = 15,
           min_keyword_length = 2,
-          should_show_items = function(ctx, _)
-            return ctx.line and ctx.line:match(';' .. '%w*$')
-          end,
+          module = "blink.cmp.sources.snippets",
+          score_offset = 85,
         },
 
         buffer = { score_offset = 0 },
