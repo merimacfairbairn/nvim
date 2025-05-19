@@ -63,7 +63,10 @@ return {
           follow_link = nil,
         },
         on_attach = function(bufnr)
-          vim.keymap.set("n", "<space>toc", "<CMD>MDToc<CR>", { buffer = bufnr })
+          local set = vim.keymap.set
+          local opts = { buffer = bufnr }
+
+          set("n", "<leader>mtt", "<CMD>MDToc<CR>", opts)
         end,
       })
     end
@@ -111,7 +114,7 @@ return {
       vim.keymap.set("i", "<CR>", "<CR><cmd>AutolistNewBullet<cr>")
       vim.keymap.set("n", "o", "o<cmd>AutolistNewBullet<cr>")
       vim.keymap.set("n", "O", "O<cmd>AutolistNewBulletBefore<cr>")
-      vim.keymap.set("n", "<CR>", "<cmd>AutolistToggleCheckbox<cr><CR>")
+      vim.keymap.set("n", "<M-c>", "<cmd>AutolistToggleCheckbox<cr><CR>")
       vim.keymap.set("n", "<Leader>r", "<cmd>AutolistRecalculate<cr>")
 
       -- cycle list types with dot-repeat
@@ -134,7 +137,32 @@ return {
       vim.cmd("silent! Mtm")
     end
   },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {
+      preset = "obsidian",
+      completions = {
+        blink = { enabled = true }
+      },
+    },
+    config = function(_, opts)
+      require("render-markdown").setup(opts)
     end
   },
-  { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+  {
+    "toppair/peek.nvim",
+    event = { "VeryLazy" },
+    build = "deno task --quiet build:fast",
+    opts = {
+      app = "firefox",
+    },
+    config = function(_, opts)
+      require("peek").setup(opts)
+      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+    end,
+  },
 }
