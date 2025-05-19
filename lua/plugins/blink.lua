@@ -1,6 +1,10 @@
 return {
   'saghen/blink.cmp',
-  dependencies = 'L3MON4D3/LuaSnip',
+  dependencies = {
+    'L3MON4D3/LuaSnip',
+    "moyiz/blink-emoji.nvim",
+    "Kaiser-Yang/blink-cmp-dictionary",
+  },
   version = '*',
 
   ---@module 'blink.cmp'
@@ -21,20 +25,33 @@ return {
     },
 
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
+      default = { "lsp", "path", "snippets", "buffer", "emoji", "dictionary" },
       per_filetype = {
-        lua = { 'lazydev', "lsp", "path", "snippets", "buffer" }
+        lua = { "lazydev", inherit_defaults = true },
       },
 
       providers = {
         lazydev = {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
-          score_offset = 100,
+          score_offset = 95,
         },
-        lsp = { score_offset = 3 },
-        path = { score_offset = 2 },
-        snippets = { score_offset = 1 },
+
+        lsp = {
+          score_offset = 90,
+          fallbacks = nil
+        },
+        path = { score_offset = 40 },
+
+        snippets = {
+          score_offset = 10,
+          max_items = 15,
+          min_keyword_length = 2,
+          should_show_items = function(ctx, _)
+            return ctx.line and ctx.line:match(';' .. '%w*$')
+          end,
+        },
+
         buffer = { score_offset = 0 },
         cmdline = {
           min_keyword_length = function(ctx)
@@ -42,6 +59,28 @@ return {
             if ctx.mode == 'cmdline' and string.find(ctx.line, ' ') == nil then return 3 end
             return 0
           end
+        },
+
+        emoji = {
+          module = "blink-emoji",
+          name = "Emoji",
+          score_offset = 50,
+          opts = { insert = true },
+        },
+
+        dictionary = {
+          module = "blink-cmp-dictionary",
+          name = "Dict",
+          score_offset = 5,
+          enabled = true,
+          max_items = 8,
+          min_keyword_length = 3,
+          opts = {
+            dictionary_files = {
+              vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"),
+              "/usr/share/dict/british-english",
+            }
+          },
         },
       },
     },
@@ -72,5 +111,5 @@ return {
     signature = { enabled = true },
   },
 
-  opts_extend = { "sources.default" }
+  opts_extend = { "sources.default" },
 }
