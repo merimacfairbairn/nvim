@@ -33,6 +33,17 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+-- folds
+vim.opt.foldenable = true
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldcolumn = "0"
+vim.opt.foldtext = ""
+vim.opt.foldlevel = 99
+
+vim.opt.fillchars = vim.opt.fillchars + { fold = " " }
+vim.cmd("highlight! link Folded Normal")
+
 -- spell checker
 vim.opt.spelllang = "en_gb"
 vim.opt.spell = true
