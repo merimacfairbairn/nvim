@@ -8,7 +8,7 @@ return {
 
   config = function()
     require("mason-null-ls").setup({
-      ensure_installed = { "isort", "black", "djlint", "prettier" },
+      ensure_installed = { "isort", "black", "djlint", "prettier", "markdownlint" },
       automatic_installation = true,
     })
 
@@ -17,7 +17,13 @@ return {
       sources = {
         null_ls.builtins.formatting.isort,
         null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.prettier.with({
+          extra_args = {
+            "--print-width", "80",
+            "--prose-wrap", "always",
+          },
+        }),
+        null_ls.builtins.diagnostics.markdownlint,
         null_ls.builtins.formatting.djlint.with({
           filetypes = { "htmldjango" },
           extra_args = { "--indent-size", "2" },
