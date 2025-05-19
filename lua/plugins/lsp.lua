@@ -37,7 +37,7 @@ return {
       },
 
       pyright = {
-        on_attach = function(client, bufnr)
+        on_attach = function(client, _)
           if client.name == "pyright" then
             client.handlers["textDocument/publishDiagnostics"] = function() end -- no diagnostics from pyright
           end
@@ -94,12 +94,14 @@ return {
     })
 
     require("mason-lspconfig").setup({
+      automatic_enable = true,
       ensure_installed = {
         "lua_ls",
         "clangd",
         "gopls",
         "ruff",
         "pyright",
+        "marksman",
       },
     })
 
