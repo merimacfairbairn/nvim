@@ -127,9 +127,13 @@ return {
   },
   {
     'Kicamon/markdown-table-mode.nvim',
-    cmd = "Mtm",
+    ft = { 'markdown' },
     config = function()
       require('markdown-table-mode').setup()
+
+      vim.cmd("silent! Mtm")
+    end
+  },
     end
   },
   { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
