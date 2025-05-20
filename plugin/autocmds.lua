@@ -11,8 +11,8 @@ autocmd("LspAttach", {
     local opts = { buffer = ev.buf }
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<Leader>vd", function() vim.diagnostic.open_float() end, opts)
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+    vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
     vim.keymap.set("n", "<Leader>vca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<Leader>vrn", function() vim.lsp.buf.rename() end, opts)
   end
