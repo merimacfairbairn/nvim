@@ -87,9 +87,7 @@ end
 ---@param levels table<number>
 local function fold_prelude(levels)
   vim.cmd("silent update")
-  -- Reloads the file to refresh folds, otheriise you have to re-open neovim
   vim.cmd("edit!")
-  -- Unfold everything first or I had issues
   vim.cmd("normal! zR")
   fold_markdown_headings(levels)
   vim.cmd("normal! zz")
@@ -98,6 +96,7 @@ end
 local function fold_h2() fold_prelude({ 6, 5, 4, 3, 2 }) end
 local function fold_h3() fold_prelude({ 6, 5, 4, 3 }) end
 local function fold_h4() fold_prelude({ 6, 5, 4 }) end
+local function fold_h5() fold_prelude({ 6, 5 }) end
 
 local loc = vim.opt_local
 
@@ -112,10 +111,10 @@ loc.textwidth = 80
 set_markdown_folding()
 
 vim.keymap.set("n", "zu", fold_h2, { desc = "Fold all headings level 2 or above" })
-vim.keymap.set("n", "zh", fold_h3, { desc = "Fold all headings level 3 or above" })
-vim.keymap.set("n", "z;", fold_h4, { desc = "Fold all headings level 4 or above" })
+vim.keymap.set("n", "z;", fold_h3, { desc = "Fold all headings level 3 or above" })
+vim.keymap.set("n", "zj", fold_h4, { desc = "Fold all headings level 4 or above" })
+vim.keymap.set("n", "zk", fold_h5, { desc = "Fold all headings level 5 or above" })
 
--- zi by default toggles folding, but I don't need it lamw25wmal
 vim.keymap.set("n", "zi", function()
   vim.cmd("silent update")
   vim.cmd("normal [[")
