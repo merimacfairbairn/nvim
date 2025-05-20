@@ -102,16 +102,21 @@ return {
       },
     })
 
+
     vim.diagnostic.config({
+      virtual_text     = true,
+      signs            = true,
+      underline        = true,
       update_in_insert = true,
-      float = {
-        foculable = false,
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
+      float            = {
+        focusable = false,
+        style     = "minimal",
+        border    = "rounded",
+        source    = "always",
+        header    = "",
+        prefix    = "",
       },
+      severity_sort    = true,
     })
   end
 }
