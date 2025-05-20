@@ -111,6 +111,7 @@ return {
         "ruff",
         "pyright",
         "marksman",
+        "harper_ls",
       },
     })
 
