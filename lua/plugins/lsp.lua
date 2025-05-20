@@ -68,6 +68,18 @@ return {
           }
         }
       },
+
+      harper_ls = {
+        settings = {
+          ["harper-ls"] = {
+            markdown = {
+              IgnoreLinkTitle = true,
+            },
+
+            dialect = "British",
+          },
+        },
+      },
     },
   },
 
