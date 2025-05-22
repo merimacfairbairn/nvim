@@ -10,17 +10,17 @@ return {
   ft = { 'org' },
   config = function()
     require("org-roam").setup({
-      directory = "~/documents/orgroam",
+      directory = "~/documents/notes/orgroam",
       extensions = {
         dailies = {
-          directory = "~/documents/orgroam/journal",
+          directory = "~/documents/notes/daily",
         },
       },
     })
     local Menu = require("org-modern.menu")
     require('orgmode').setup({
-      org_agenda_files = '~/documents/orgfiles/**/*',
-      org_default_notes_file = '~/documents/orgfiles/refile.org',
+      org_agenda_files = '~/documents/notes/orgfiles/**/*',
+      org_default_notes_file = '~/documents/notes/orgfiles/refile.org',
 
       mappings = {
         prefix = "<space>o",
