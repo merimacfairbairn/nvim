@@ -40,10 +40,6 @@ return {
           end,
         },
       },
-
-      notifications = {
-        enabled = true,
-      },
     })
 
     require("headlines").setup({

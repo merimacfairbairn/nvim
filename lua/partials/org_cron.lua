@@ -6,6 +6,12 @@ require('orgmode').cron({
   org_agenda_files = '~/documents/notes/orgfiles/**/*',
   org_default_notes_file = '~/documents/notes/orgfiles/refile.org',
   notifications = {
-    reminder_time = { 0, 5, 10 },
+    enabled = true,
+    cron_enabled = true,
+    repeater_reminder_time = true,
+    deadline_warning_reminder_time = true,
+    reminder_time = { 1, 5, 10 },
+    deadline_reminder = true,
+    scheduled_reminder = true,
   },
 })
