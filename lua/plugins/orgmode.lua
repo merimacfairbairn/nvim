@@ -22,9 +22,6 @@ return {
       org_agenda_files = '~/documents/notes/orgfiles/**/*',
       org_default_notes_file = '~/documents/notes/orgfiles/refile.org',
 
-      org_priority_highest = "A",
-      org_priority_default = "C",
-      org_priority_lowest = "E",
 
       mappings = {
         prefix = "<space>o",
