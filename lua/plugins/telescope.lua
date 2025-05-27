@@ -3,7 +3,6 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    'nvim-orgmode/telescope-orgmode.nvim',
   },
 
   config = function()
@@ -41,7 +40,6 @@ return {
     })
 
     require("telescope").load_extension("fzf")
-    require("telescope").load_extension("orgmode")
   end,
   keys = function()
     local builtin = require('telescope.builtin')
@@ -70,17 +68,6 @@ return {
     end, {})
     vim.keymap.set("n", "<space>tt", function()
       builtin.diagnostics(themes.get_ivy())
-    end, {})
-
-    -- Org-mode
-    vim.keymap.set("n", "<leader>r", function()
-      require("telescope").extensions.orgmode.refile_heading()
-    end, {})
-    vim.keymap.set("n", "<leader>fh", function()
-      require("telescope").extensions.orgmode.search_headings()
-    end, {})
-    vim.keymap.set("n", "<leader>li", function()
-      require("telescope").extensions.orgmode.insert_link()
     end, {})
 
     vim.keymap.set("n", "z=", function()
