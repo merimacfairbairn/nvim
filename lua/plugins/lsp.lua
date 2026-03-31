@@ -76,6 +76,10 @@ return {
               IgnoreLinkTitle = true,
             },
 
+            linters = {
+              LongSentences = false,
+            },
+
             dialect = "British",
           },
         },
@@ -84,13 +88,29 @@ return {
   },
 
   config = function(_, opts)
+    local lsp = vim.lsp
+
     for server, config in pairs(opts.servers) do
       config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-      vim.lsp.config(server, config)
-      vim.lsp.enable(server)
+
+      -- Define the LSP configuration using vim.lsp.config
+      lsp.config(server, {
+        cmd = config.cmd,
+        root_dir = config.root_dir,
+        settings = config.settings,
+        capabilities = config.capabilities,
+        filetypes = config.filetypes,
+      })
+
+      -- Enable the LSP server
+      lsp.enable(server)
     end
 
-    require("fidget").setup({})
+    require("fidget").setup({
+      notifications = {
+        override_vim_notify = true,
+      },
+    })
 
     require("mason").setup({
       ui = {

@@ -37,3 +37,5 @@ set("n", "<Leader><Leader>", function()
 end)
 
 set("n", "<CR>", "za")
+
+set("t", "<Esc>", "<C-\\><C-n>")

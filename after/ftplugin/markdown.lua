@@ -121,3 +121,7 @@ vim.keymap.set("n", "zi", function()
   vim.cmd("normal! za")
   vim.cmd("normal! zz")
 end, { desc = "[P]Fold the heading cursor currently on" })
+
+
+-- Activate quarto
+require("quarto").activate()

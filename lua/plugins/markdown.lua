@@ -147,6 +147,16 @@ return {
       completions = {
         blink = { enabled = true }
       },
+      code = {
+        enabled = true,
+        conceal_delimiters = false,
+        language = true,
+        sign = true,
+        language_icon = true,
+        language_name = true,
+        language_info = false,
+        border = "thick",
+      },
     },
     config = function(_, opts)
       require("render-markdown").setup(opts)

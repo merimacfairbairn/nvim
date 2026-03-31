@@ -47,3 +47,5 @@ vim.cmd("highlight! link Folded Normal")
 -- spell checker
 vim.opt.spelllang = "en_gb"
 vim.opt.spell = true
+
+vim.opt.verbose = 0

@@ -50,4 +50,8 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     event = { "BufNewFile", "BufReadPre" },
   },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    event = { "BufNewFile", "BufReadPre" },
+  },
 }
