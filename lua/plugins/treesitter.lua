@@ -6,7 +6,7 @@ return {
     event = { "BufNewFile", "BufReadPre" },
 
     config = function()
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter.config").setup({
         -- A list of parser names, or "all" (the five listed parsers should always be installed)
         ensure_installed = { "go", "python", "rust", "c", "lua", "vim", "javascript", "query", "markdown_inline", "markdown", },
 
