@@ -28,7 +28,6 @@ return {
       default = { "lsp", "path", "snippets", "buffer", "emoji", "dictionary" },
       per_filetype = {
         lua = { "lazydev", inherit_defaults = true },
-        org = { "orgmode", inherit_defaults = true },
       },
 
       providers = {
@@ -82,13 +81,6 @@ return {
               "/usr/share/dict/british-english",
             }
           },
-        },
-
-        orgmode = {
-          name = "Orgmode",
-          module = "orgmode.org.autocompletion.blink",
-          score_offset = 100,
-          fallbacks = { "buffer" },
         },
       },
     },
