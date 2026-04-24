@@ -1,12 +1,13 @@
 return {
   "neovim/nvim-lspconfig",
+
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "j-hui/fidget.nvim",
     {
       "folke/lazydev.nvim",
-      ft = "lua", -- only load on lua files
+      ft = "lua",
       opts = {
         library = {
           { path = "${3rd}/luv/library", words = { "vim%.uv" } },
@@ -15,33 +16,30 @@ return {
     },
   },
 
-  event = { "BufNewFile", "BufReadPre" },
+  event = { "BufReadPre", "BufNewFile" },
+
   opts = {
     servers = {
       lua_ls = {
         settings = {
           Lua = {
             diagnostics = {
-              globals = { "vim" }
-            }
+              globals = { "vim" },
+            },
           },
         },
       },
 
       ruff = {
-        init_options = {
-          settings = {
-            lineLength = 88,
-          }
-        }
+        settings = {
+          lineLength = 88,
+        },
       },
 
       pyright = {
-        on_attach = function(client, _)
-          if client.name == "pyright" then
-            client.handlers["textDocument/publishDiagnostics"] = function() end -- no diagnostics from pyright
-          end
-        end,
+        handlers = {
+          ["textDocument/publishDiagnostics"] = function() end,
+        },
         settings = {
           pyright = {
             autoImportCompletion = true,
@@ -53,20 +51,20 @@ return {
               reportMissingImports = false,
               reportUnusedImports = false,
               reportUnusedVariable = false,
-            }
+            },
           },
-        }
+        },
       },
 
       html = {
-        filetypes = { "html", "htmldjango" }, -- Ensure it works with Django templates
+        filetypes = { "html", "htmldjango" },
         init_options = {
           configurationSection = { "html", "css", "javascript" },
           embeddedLanguages = {
             css = true,
-            javascript = true
-          }
-        }
+            javascript = true,
+          },
+        },
       },
 
       harper_ls = {
@@ -75,11 +73,9 @@ return {
             markdown = {
               IgnoreLinkTitle = true,
             },
-
             linters = {
               LongSentences = false,
             },
-
             dialect = "British",
           },
         },
@@ -91,23 +87,25 @@ return {
     local lsp = vim.lsp
 
     for server, config in pairs(opts.servers) do
-      config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+      local capabilities = vim.deepcopy(config.capabilities or {})
 
-      -- Define the LSP configuration using vim.lsp.config
+      local blink_caps = require("blink.cmp").get_lsp_capabilities()
+      config.capabilities = vim.tbl_deep_extend("force", capabilities, blink_caps)
+
       lsp.config(server, {
         cmd = config.cmd,
         root_dir = config.root_dir,
         settings = config.settings,
         capabilities = config.capabilities,
         filetypes = config.filetypes,
+        handlers = config.handlers,
       })
 
-      -- Enable the LSP server
       lsp.enable(server)
     end
 
     require("fidget").setup({
-      notifications = {
+      notification = {
         override_vim_notify = true,
       },
     })
@@ -117,13 +115,13 @@ return {
         icons = {
           package_installed = "✓",
           package_pending = "➜",
-          package_uninstalled = "✗"
-        }
-      }
+          package_uninstalled = "✗",
+        },
+      },
     })
 
     require("mason-lspconfig").setup({
-      automatic_enable = true,
+      automatic_enable = false,
       ensure_installed = {
         "lua_ls",
         "clangd",
@@ -135,21 +133,20 @@ return {
       },
     })
 
-
     vim.diagnostic.config({
-      virtual_text     = true,
-      signs            = true,
-      underline        = true,
+      virtual_text = true,
+      signs = true,
+      underline = true,
       update_in_insert = true,
-      float            = {
+      float = {
         focusable = false,
-        style     = "minimal",
-        border    = "rounded",
-        source    = "if_many",
-        header    = "",
-        prefix    = "",
+        style = "minimal",
+        border = "rounded",
+        source = "if_many",
+        header = "",
+        prefix = "",
       },
-      severity_sort    = true,
+      severity_sort = true,
     })
-  end
+  end,
 }
