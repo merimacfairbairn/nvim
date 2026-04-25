@@ -39,3 +39,33 @@ end)
 set("n", "<CR>", "za")
 
 set("t", "<Esc>", "<C-\\><C-n>")
+
+-- Window management
+-- Focus
+set("n", "<space>wj", "<C-w>j")
+set("n", "<space>wk", "<C-w>k")
+
+set("n", "<space>wh", "<C-w>h")
+set("n", "<space>wl", "<C-w>l")
+
+-- Rearrangement
+set("n", "<space>wJ", "<C-w>J")
+set("n", "<space>wK", "<C-w>K")
+
+set("n", "<space>wH", "<C-w>H")
+set("n", "<space>wL", "<C-w>L")
+
+-- Split
+set("n", "<space>ws", "<C-w>s")
+set("n", "<space>wv", "<C-w>v")
+
+-- Close
+set("n", "<space>wq", "<C-w>q")
+
+-- Resize
+-- Resize bigger steps
+set("n", "<space>w+", "5<C-w>+")
+set("n", "<space>w-", "5<C-w>-")
+
+set("n", "<space>w>", "5<C-w>>")
+set("n", "<space>w<", "5<C-w><")
