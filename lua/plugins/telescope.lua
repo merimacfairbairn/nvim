@@ -70,7 +70,7 @@ return {
       builtin.diagnostics(themes.get_ivy())
     end, {})
 
-    vim.keymap.set("n", "z=", function()
+    vim.keymap.set({"n", "v"}, "z=", function()
       builtin.spell_suggest(themes.get_cursor())
     end, {})
   end,
