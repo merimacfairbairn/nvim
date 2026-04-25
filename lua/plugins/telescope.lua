@@ -57,6 +57,8 @@ return {
     end)
 
     vim.keymap.set('n', '<space>vh', builtin.help_tags, {})
+    vim.keymap.set('n', '<space>vm', builtin.man_pages, {})
+
 
     -- LSP
     vim.keymap.set("n", "<Leader>vrr", builtin.lsp_references, {})
