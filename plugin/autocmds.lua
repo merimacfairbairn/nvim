@@ -37,3 +37,33 @@ autocmd("FileType", {
   end,
 })
 
+local group = vim.api.nvim_create_augroup("autosave", {})
+
+-- Notification to say when a file is saved by autosave
+vim.api.nvim_create_autocmd("User", {
+  pattern = "AutoSaveWritePre",
+  group = group,
+  callback = function(opts)
+    if opts.data.saved_buffer ~= nil then
+      local filename = vim.fn.expand("%:t")
+      vim.notify("Saved '" .. filename .. "' at " .. vim.fn.strftime("%H:%M:%S"))
+    end
+  end,
+})
+
+-- Notification when enabling/disabling autosave for a buffer
+vim.api.nvim_create_autocmd("User", {
+  pattern = "AutoSaveEnable",
+  group = group,
+  callback = function()
+    vim.notify("AutoSave enabled")
+  end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "AutoSaveDisable",
+  group = group,
+  callback = function()
+    vim.notify("AutoSave disabled")
+  end,
+})
