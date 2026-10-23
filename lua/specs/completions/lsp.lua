@@ -4,7 +4,6 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "j-hui/fidget.nvim",
     {
       "folke/lazydev.nvim",
       ft = "lua",
@@ -117,12 +116,6 @@ return {
 
       lsp.enable(server)
     end
-
-    require("fidget").setup({
-      notification = {
-        override_vim_notify = true,
-      },
-    })
 
     require("mason").setup({
       ui = {
