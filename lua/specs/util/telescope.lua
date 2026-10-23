@@ -48,7 +48,7 @@ return {
     -- Find
     vim.keymap.set('n', '<space>pf', builtin.find_files, {})
     vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-    -- require("plugins.telescope.multigrep").setup()
+    -- require("_telescope.multigrep").setup()
 
     vim.keymap.set('n', '<space>ep', function()
       builtin.find_files({
