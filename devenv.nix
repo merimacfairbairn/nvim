@@ -18,12 +18,8 @@
     stylua
   ];
 
-  git-hooks.hooks.stylua = {
-    enable = true;
-    name = "stylua";
-    entry = "{pkgs.stylua}/bin/stylua .";
-    files = "\\.lua$";
-    pass_filenames = false;
+  git-hooks.hooks = {
+    stylua.enable = true;
   };
 
   enterShell = ''
