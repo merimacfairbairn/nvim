@@ -1,10 +1,10 @@
 return {
-  "ellisonleao/gruvbox.nvim",
+  "catpuccin/nvim",
   priority = 1000,
   config = function()
     vim.o.background = "dark"
     function ColorDefault(color)
-      color = color or "gruvbox"
+      color = color or "catppuccin-nvim"
       vim.cmd.colorscheme(color)
     end
 
@@ -12,5 +12,7 @@ return {
   end,
   opts = {
     transparent_mode = true
+
+    flavour = "mocha"
   },
 }
