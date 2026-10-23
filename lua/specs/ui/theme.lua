@@ -3,6 +3,25 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
+    opts = {
+      flavour = "mocha",
+
+      transparent_background = true,
+      float = {
+        transparent = true,
+        solid = true,
+      },
+
+      show_end_of_buffer = true,
+      term_colors = false,
+      auto_integrations = true,
+      integrations = {
+        cmp = true,
+        blink_cmp = {
+          style = "bordered",
+        },
+      },
+    },
     config = function(_, opts)
       vim.o.background = "dark"
       function ColorDefault(color)
@@ -14,11 +33,6 @@ return {
 
       ColorDefault()
     end,
-    opts = {
-      transparent_mode = true,
-
-      flavour = "mocha",
-    },
   },
   {
     "tadaa/vimade",
