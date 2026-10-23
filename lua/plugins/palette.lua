@@ -2,12 +2,14 @@ return {
   "catppuccin/nvim",
   name = "catppuccin",
   priority = 1000,
-  config = function()
+  config = function(_, opts)
     vim.o.background = "dark"
     function ColorDefault(color)
       color = color or "catppuccin-mocha"
       vim.cmd.colorscheme(color)
     end
+
+    require("catppuccin").setup(opts)
 
     ColorDefault()
   end,
