@@ -14,7 +14,7 @@ oloc.linebreak = true
 -- UI noise
 oloc.number = false
 oloc.relativenumber = false
-oloc.signcolumn = 'no'
+oloc.signcolumn = "no"
 oloc.colorcolumn = ""
 
 -- Enable folds

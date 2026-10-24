@@ -33,7 +33,7 @@ set("n", "<space>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 set("n", "<Leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 set("n", "<Leader><Leader>", function()
-  vim.cmd("w|so %")
+	vim.cmd("w|so %")
 end)
 
 set("n", "<CR>", "za")
