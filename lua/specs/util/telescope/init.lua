@@ -2,7 +2,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		-- { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 
 	config = function()
@@ -39,7 +39,7 @@ return {
 			},
 		})
 
-		require("telescope").load_extension("fzf")
+		-- require("telescope").load_extension("fzf")
 	end,
 	keys = function()
 		local builtin = require("telescope.builtin")
