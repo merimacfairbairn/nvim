@@ -17,6 +17,8 @@ set("n", "<space>Y", [["+Y]])
 set({ "n", "v" }, "<space>d", [["_d]])
 
 set("n", "Q", "<nop>")
+set("n", "q:", ":")
+
 set("n", "<Leader>f", vim.lsp.buf.format)
 
 set("n", "<C-k>", "<cmd>cnext<CR>zz")
