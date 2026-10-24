@@ -3,7 +3,6 @@ return {
 	dependencies = {
 		"L3MON4D3/LuaSnip",
 		"moyiz/blink-emoji.nvim",
-		"Kaiser-Yang/blink-cmp-dictionary",
 	},
 	version = "*",
 
@@ -25,7 +24,7 @@ return {
 		},
 
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "emoji", "dictionary" },
+			default = { "lsp", "path", "snippets", "buffer", "emoji" },
 			per_filetype = {
 				lua = { "lazydev", inherit_defaults = true },
 			},
@@ -68,21 +67,6 @@ return {
 					name = "Emoji",
 					score_offset = 50,
 					opts = { insert = true },
-				},
-
-				dictionary = {
-					module = "blink-cmp-dictionary",
-					name = "Dict",
-					score_offset = 5,
-					enabled = true,
-					max_items = 8,
-					min_keyword_length = 3,
-					opts = {
-						dictionary_files = {
-							vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"),
-							"/usr/share/dict/british-english",
-						},
-					},
 				},
 			},
 		},
