@@ -50,7 +50,6 @@
           cargo
           fzf
           gnumake
-          imagemagick
           luarocks
         ];
 
