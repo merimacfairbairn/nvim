@@ -17,4 +17,5 @@ require("lazy").setup(require("config.tree").import("specs"), {
 	change_detection = {
 		notify = false,
 	},
+	performance = { rtp = { reset = false } },
 })
