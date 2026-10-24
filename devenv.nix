@@ -16,13 +16,19 @@
   packages = with pkgs; [
     neovim
     stylua
+    fzf
+    ripgrep
   ];
 
   git-hooks.hooks = {
     stylua.enable = true;
   };
 
+  scripts.v.exec = ''
+    NVIM_APPNAME=nvim nvim $@
+  '';
+
   enterShell = ''
-    git --version # Use packages
+    git --version
   '';
 }
