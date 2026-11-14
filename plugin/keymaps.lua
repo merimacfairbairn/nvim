@@ -21,10 +21,10 @@ set("n", "q:", ":")
 
 set("n", "<Leader>f", vim.lsp.buf.format)
 
-set("n", "<C-k>", "<cmd>cnext<CR>zz")
-set("n", "<C-j>", "<cmd>cprev<CR>zz")
-set("n", "<space>k", "<cmd>lnext<CR>zz")
-set("n", "<space>j", "<cmd>lprev<CR>zz")
+set("n", "<C-j>", "<cmd>cnext<CR>zz")
+set("n", "<C-k>", "<cmd>cprev<CR>zz")
+set("n", "<space>j", "<cmd>lnext<CR>zz")
+set("n", "<space>k", "<cmd>lprev<CR>zz")
 
 set("n", "<leader>t", "<cmd>PlenaryBustedFile %<CR>")
 
