@@ -24,6 +24,7 @@ return {
 		},
 		config = function(_, opts)
 			vim.o.background = "dark"
+      vim.o.winborder = "rounded"
 			function ColorDefault(color)
 				color = color or "catppuccin-mocha"
 				vim.cmd.colorscheme(color)
